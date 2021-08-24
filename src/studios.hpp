@@ -3,7 +3,6 @@
 #include <iostream>
 
 #include "mkvwriter/MatroskaMuxer.h"
-
 #include "audio.hpp"
 #include "video.hpp"
 
@@ -13,9 +12,9 @@ public:
 	Studios(int argc, char **argv)
 	{
 		mkvwriter::MatroskaMuxer muxer;
-		if (argc < 3)
-			std::cerr << "Error: Insufficient arguments provided\n" <<
-				"Usage: muxer <output_filename: file.mkv> <window mode: large || small>\n";
+		if (argc < 2)
+			std::cerr << "Error: Insufficient arguments provided" << std::endl <<
+				"Usage: muxer <output_filename: file.mkv>/* <window mode: large || small>*/" << std::endl;
 
 		std::string outfile = argv[1];
 		if (muxer.Set_OutputFilename(outfile))
@@ -27,7 +26,7 @@ public:
 		auto A = Audio(&muxer, stream, V_fps);
 		
 		stream++;
-		auto V = Video(&muxer, stream, argv, V_fps);
+		auto V = Video(&muxer, stream, /*argv, */V_fps);
 
 		long double A_x = 0;
 		long double A_x_freq = 0;

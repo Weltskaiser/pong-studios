@@ -10,7 +10,7 @@
 #include <SFML/Graphics/RenderWindow.hpp> //
 #include <SFML/Graphics/Sprite.hpp> //
 
-#include "mkvwriter/MatroskaMuxer.h"
+//#include "mkvwriter/MatroskaMuxer.h"
 #include <x264.h>
 
 class Video
@@ -92,7 +92,7 @@ class Video
 	}
 
 public:
-	Video(mkvwriter::MatroskaMuxer *muxer, int stream, char **argv, float V_fps):
+	Video(mkvwriter::MatroskaMuxer *muxer, int stream, /*char **argv, */float V_fps):
 		muxer(muxer),
 		stream(stream),
 		fps(V_fps)
