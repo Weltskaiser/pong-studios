@@ -1,7 +1,7 @@
 CXX = clang++
 CXXFLAGS = -std=c++17 -Wall -Wextra -g -I src
 
-SANITIZE = true
+#SANITIZE = true
 
 ifdef SANITIZE
 CXXFLAGS += -g -fsanitize=address -fno-omit-frame-pointer -fsanitize=undefined
@@ -9,7 +9,7 @@ endif
 
 SRC = $(wildcard ./src/*.cpp) $(wildcard ./src/*/*.cpp)
 OBJ = $(SRC:.cpp=.o)
-LIB = -lmkvwriter-debug -lebml -lmatroska -lFLAC -lx264 -lsfml-graphics -lsfml-system -lsfml-window
+LIB = -lmkvwriter -lebml -lmatroska -lFLAC -lx264 -lsfml-graphics -lsfml-system -lsfml-window
 
 TARGET = STD.exe
 
